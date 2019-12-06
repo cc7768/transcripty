@@ -31,7 +31,7 @@ class CreditAccumulationModel(object):
 
     Parameters
     ----------
-    Tc : int
+    Tcoll : int
         The number of years an individual can stay enrolled in college
     ncoursesattempted : int
         The number of courses an individual attempts per year
