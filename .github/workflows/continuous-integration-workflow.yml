@@ -27,7 +27,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - name: get_repo
-          uses: actions/checkout@test_ga
+          uses: actions/checkout@master
+          with:
+              ref: test_ga
         - name: installation
           run: |
               sudo apt-get install python3-pip python3
