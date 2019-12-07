@@ -50,8 +50,8 @@ jobs:
               with:
                 github_token: ${{ secrets.GITHUB_TOKEN }}
     # Second job is to run tests
-    test:
-        name: Test
-        runs-on: [ubuntu-latest, mac-latest, windows-latest]
+    # test:
+    #     name: Test
+    #     runs-on: [ubuntu-latest, mac-latest, windows-latest]
 
 
