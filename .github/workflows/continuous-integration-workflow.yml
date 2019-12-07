@@ -8,7 +8,7 @@ on:
     # Any push to master
     push:
         branches:
-            - master
+            - test_ga
     # Any pull request opened to master
     pull_request:
         branches:
@@ -26,8 +26,29 @@ jobs:
         # Ok to just use ubuntu -- Don't need docs from multiple platforms
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@master
-            - uses: ./.github/actions/refresh_sphinx_docs
+            - name: get_repo
+              uses: actions/checkout@test_ga
+            - name: installation
+              run: |
+                  sudo apt-get install python3-pip python3
+                  pip3 install sphinx
+                  pip3 install -r requirements.txt
+                  pip3 install .
+            - name: sphinx_docs
+              run: |
+                  cd docs
+                  sphinx-apidoc -o source ../transcripty
+                  make html
+                  cd ..
+            - name: commit
+              run: |
+                git config --local user.email "action@github.com"
+                git config --local user.name "GitHub Action"
+                git commit -m "Add changes" -a
+            - name: push
+              uses: ad-m/github-push-action@test_ga
+              with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
     # Second job is to run tests
     test:
         name: Test
