@@ -1,0 +1,20 @@
+name: continuous-integration-py
+
+# This workflow is triggered by
+on:
+    # Any push to master
+    push:
+        branches:
+            - test_ga
+
+jobs:
+    # First job is to automatically generate the docs
+    docbuild:
+        # Job name
+        name: DocBuild
+        # Ok to just use ubuntu -- Don't need docs from multiple platforms
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@master
+            - uses: ./.github/actions/hello-world
+
