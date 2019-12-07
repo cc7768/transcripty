@@ -40,6 +40,7 @@ jobs:
               cd docs
               # rm -rf source
               # sphinx-apidoc -o source ../transcripty
+              cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 10 | head -n 1 >> newfile.txt
               touch newfile.txt
               # make html
               cd ..
@@ -47,7 +48,8 @@ jobs:
           run: |
             git config --local user.email "action@github.com"
             git config --local user.name "GitHub Action"
-            git commit -m "Add changes" -a
+            git add docs/newfile.txt
+            git commit -m "Add changes"
         - name: push
           uses: ad-m/github-push-action@master
           with:
