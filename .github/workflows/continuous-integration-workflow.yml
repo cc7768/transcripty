@@ -32,7 +32,7 @@ jobs:
               ref: test_ga
         - name: installation
           run: |
-              sudo apt-get install python3-pip python3 python3-sphinx
+              sudo apt-get install python3-pip python3 python3-sphinx python3-setuptools
               pip3 install -r requirements.txt
               pip3 install .
         - name: sphinx_docs
