@@ -1,4 +1,7 @@
-FROM alpine:3.10
+FROM archlinux:latest
+
+RUN pacman -Syu \
+    pacman -S python python-pip
 
 COPY entrypoint.sh /entrypoint.sh
 
