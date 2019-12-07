@@ -3,8 +3,8 @@ name: continuous-integration-py
 # This workflow is triggered by
 on:
     # Run at least once a week
-    schedule:
-        - cron: '0 0 0 * *'
+    # schedule:
+    #     - cron: '0 0 0 * *'
     # Any push to master
     push:
         branches:
