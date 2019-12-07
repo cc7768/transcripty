@@ -38,7 +38,8 @@ jobs:
         - name: sphinx_docs
           run: |
               cd docs
-              sphinx-apidoc -o source ../transcripty
+              # rm -rf source
+              # sphinx-apidoc -o source ../transcripty
               make html
               cd ..
         - name: commit
