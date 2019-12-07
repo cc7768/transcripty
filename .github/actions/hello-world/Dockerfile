@@ -1,7 +1,7 @@
 FROM archlinux:latest
 
-RUN pacman -Syu --no-confirm
-RUN pacman -S python python-pip
+RUN pacman -Syu --noconfirm
+RUN pacman -S python python-pip --noconfirm
 
 RUN pip install sphinx
 

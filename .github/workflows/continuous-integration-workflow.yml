@@ -27,7 +27,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@master
-            - uses: ./.github/actions/sphinxapidoc
+            - uses: ./.github/actions/refresh_sphinx_docs
     # Second job is to run tests
     test:
         name: Test
