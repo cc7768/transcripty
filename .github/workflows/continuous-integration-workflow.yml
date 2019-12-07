@@ -48,7 +48,7 @@ jobs:
             git config --local user.name "GitHub Action"
             git commit -m "Add changes" -a
         - name: push
-          uses: ad-m/github-push-action@test_ga
+          uses: ad-m/github-push-action@master
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
     # Second job is to run tests
