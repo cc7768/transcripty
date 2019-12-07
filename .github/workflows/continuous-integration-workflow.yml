@@ -40,7 +40,8 @@ jobs:
               cd docs
               # rm -rf source
               # sphinx-apidoc -o source ../transcripty
-              make html
+              touch newfile.txt
+              # make html
               cd ..
         - name: commit
           run: |
