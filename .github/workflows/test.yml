@@ -1,4 +1,4 @@
-name: continuous-integration-py
+name: test-hello-world
 
 # This workflow is triggered by
 on:
@@ -15,6 +15,15 @@ jobs:
         # Ok to just use ubuntu -- Don't need docs from multiple platforms
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@master
-            - uses: ./.github/actions/hello-world
+        # To use this repository's private action, you must check out the repository
+        - name: Checkout
+          uses: actions/checkout@v1
+        - name: Hello world action step
+          uses: ./.github/actions/hello-world
+          id: hello
+          with:
+            who-to-greet: 'Mona the Octocat'
+        # Use the output from the `hello` step
+        - name: Get the output time
+          run: echo "The time was ${{ steps.hello.outputs.time }}"
 
