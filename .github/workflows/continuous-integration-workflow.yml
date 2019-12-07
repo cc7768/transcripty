@@ -37,12 +37,12 @@ jobs:
               pip3 install .
         - name: sphinx_docs
           run: |
+              . ~/.bashrc
               cd docs
-              # rm -rf source
-              # sphinx-apidoc -o source ../transcripty
-              # cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 10 | head -n 1 >> newfile.txt
-              touch newfile.txt
-              # make html
+              date >> update.txt
+              rm -rf source
+              sphinx-apidoc -o source ../transcripty
+              make html
               cd ..
         - name: commit
           run: |
