@@ -8,6 +8,8 @@ inputs:
 outputs:
   time: # id of output
     description: 'The time we greeted you'
+  sphinx_version: # id of output
+    description: 'Sphinx version'
 runs:
   using: 'docker'
   image: 'Dockerfile'
