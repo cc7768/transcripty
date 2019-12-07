@@ -5,7 +5,8 @@ on:
     # Any push to master
     push:
         branches:
-            - test_ga
+            # - test_ga
+            - master
 
 jobs:
     # First job is to automatically generate the docs
