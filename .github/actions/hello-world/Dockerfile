@@ -1,8 +1,8 @@
-FROM archlinux:latest
+FROM alpine:3.10
 
-RUN pacman -Syu --noconfirm
-RUN pacman -S python python-pip --noconfirm
-RUN pip install sphinx
+RUN apk add --update python python-dev py-pip
+RUN pip install virtualenv sphinx
+RUN rm -rf /var/cache/apk/*
 
 COPY entrypoint.sh /entrypoint.sh
 
